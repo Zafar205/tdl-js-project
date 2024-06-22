@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+    <link rel="stylesheet" href="styles/main.css"> <!-- Reference to the external CSS file -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let tasks = JSON.parse(localStorage.getItem('permanenttask')) || [];
+
+            updateTasksDisplay();
+
+            function addTask() {
+                const textToAdd = document.querySelector(".js-input").value;
+                const dateToAdd = document.querySelector(".js-date").value;
+
+                tasks.push({ text: textToAdd, date: dateToAdd });
+
+                updateTasksDisplay();
+            }
+
+            function updateTasksDisplay() {
+                let tasksToDisplay = '<table><tr><th>Task</th><th>Date</th><th>Action</th></tr>';
+                for (let i = 0; i < tasks.length; i++) {
+                    tasksToDisplay += `
+                        <tr class="task">
+                            <td>${tasks[i].text}</td>
+                            <td>${tasks[i].date}</td>
+                            <td><button class="delete-btn" onclick="deleteTask(${i})">Delete</button></td>
+                        </tr>`;
+                }
+                tasksToDisplay += '</table>';
+                document.querySelector('.js-tasks').innerHTML = tasksToDisplay;
+
+                localStorage.setItem('permanenttask', JSON.stringify(tasks));
+            }
+
+            // Attach deleteTask to the window object to make it globally accessible
+            window.deleteTask = function(index) {
+                tasks.splice(index, 1);
+                updateTasksDisplay();
+            };
+
+            document.querySelector('.js-add').addEventListener('click', addTask);
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Your Task</h1>
+        <div class="input-group">
+            <input type="text" placeholder="Enter your Task" class="js-input"> 
+            <input type="date" class="js-date">
+            <button class="js-add">Add</button>
+        </div>
+        <div class="js-tasks"></div>
+    </div>
+</body>
+</html>

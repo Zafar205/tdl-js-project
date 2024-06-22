@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.js-input, .js-date {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex: 1;
+    margin-right: 5px;
+}
+
+.js-date {
+    flex: 0 0 140px; /* Adjusted width for the date input */
+}
+
+.js-add {
+    padding: 7px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    flex: 0 0 auto;
+}
+
+.js-add:hover {
+    background-color: #218838;
+}
+
+.js-tasks {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+th {
+    background-color: #f9f9f9;
+}
+
+.task td {
+    background-color: #fff;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+.task td {
+    vertical-align: middle;
+}
+
+.task td:first-child {
+    padding-left: 20px;
+}
+
+.task td:nth-child(2) {
+    text-align: center;
+}
+
+.task td:nth-child(3) {
+    text-align: right;
+    padding-right: 20px;
+}
